@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/constants/global_variables.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,11 +14,19 @@ class MyApp extends StatelessWidget {
   
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+    theme: ThemeData(
+      scaffoldBackgroundColor: GlobalVariables.backgroundColor,
+      colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+    ),
       title: 'Amazon clone',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: Scaffold(body: Center(child: const Text('Home page'))),
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.blue,
+          title: Center(child: Text('hello',style: TextStyle(
+            color: Colors.white
+          ),)),
+        ),
+        body: Center(child: const Text('Home page'))),
     );
   }
 }
