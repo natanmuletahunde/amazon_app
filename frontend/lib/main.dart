@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
           iconTheme: IconThemeData(color: Colors.black),
         ),
       ),
+      onGenerateRoute: ,
       title: 'Amazon clone',
       home: Scaffold(
         appBar: AppBar(
