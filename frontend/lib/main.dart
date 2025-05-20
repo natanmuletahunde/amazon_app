@@ -11,24 +11,35 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-  
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-    theme: ThemeData(
-      scaffoldBackgroundColor: GlobalVariables.backgroundColor,
-      colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-    ),
+      theme: ThemeData(
+        scaffoldBackgroundColor: GlobalVariables.backgroundColor,
+        colorScheme:  ColorScheme.light(
+          primary: GlobalVariables.secondaryColor,
+        ),
+        appBarTheme: const AppBarTheme(
+          elevation: 0,
+          iconTheme: IconThemeData(color: Colors.black),
+        ),
+      ),
       title: 'Amazon clone',
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.blue,
-          title: Center(child: Text('hello',style: TextStyle(
-            color: Colors.white
-          ),)),
+          title: Center(
+            child: Text('hello', style: TextStyle(color: Colors.white)),
+          ),
         ),
-        body: Center(child: const Text('Home page'))),
+        body: Column(
+          children: [
+            ElevatedButton(onPressed: () {}, child: Text('click') 
+          ),
+            Padding(padding: EdgeInsets.only(top: 20)),
+            Center(child: const Text('Home page')),
+          ],
+        ),
+      ),
     );
   }
 }
-
-
