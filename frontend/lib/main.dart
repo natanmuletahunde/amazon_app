@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/constants/global_variables.dart';
+import 'package:frontend/features/auth/screens/auth_screen.dart';
+import 'package:frontend/router.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
           iconTheme: IconThemeData(color: Colors.black),
         ),
       ),
-      onGenerateRoute: ,
+      onGenerateRoute:(Settings)=>generateRoute(Settings) ,
       title: 'Amazon clone',
       home: Scaffold(
         appBar: AppBar(
@@ -34,8 +36,14 @@ class MyApp extends StatelessWidget {
         ),
         body: Column(
           children: [
-            ElevatedButton(onPressed: () {}, child: Text('click') 
-          ),
+            Builder(
+              builder: (context) {
+                return ElevatedButton(onPressed: () {
+                  Navigator.pushNamed(context, AuthScreen.routeName);
+                }, child: Text('click') 
+                          );
+              }
+            ),
             Padding(padding: EdgeInsets.only(top: 20)),
             Center(child: const Text('Home page')),
           ],
